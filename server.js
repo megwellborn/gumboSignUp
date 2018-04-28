@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   console.log('got a GET request');
 }); //get request to / is given to responder function
 
-app.get('/verifyAdmin', (req, res) => {
+//app.get('/verifyAdmin', (req, res) => {
   console.log('got a verifyAdmin GET request');
   console.log(JSON.stringify(req.query));
 
@@ -43,7 +43,7 @@ app.get('/verifyAdmin', (req, res) => {
 
 });
 
-app.get('/about', (req, res) => {
+//app.get('/about', (req, res) => {
   res.sendFile(__dirname + '/about.html');
   console.log('got a GET request');
 }); //get request to /about is given to responder function
@@ -52,12 +52,12 @@ app.get('/about', (req, res) => {
 // We want to show only the first N shifts after the CURRENT date
 // Set N = 5 for now.
 var N = 5;
-app.get('/volunteer', (req, res) => {
+app.get('/index', (req, res) => {
   //obtain data from shifts into cursor object
-  var todaysDate = new Date();
-  var stringDate = ('0' + (todaysDate.getMonth()+1)).slice(-2) + '/' +
-    ('0' + todaysDate.getDate()).slice(-2) + '/' + todaysDate.getFullYear();
-  console.log(stringDate);
+//  var todaysDate = new Date();
+  //var stringDate = ('0' + (todaysDate.getMonth()+1)).slice(-2) + '/' +
+    //('0' + todaysDate.getDate()).slice(-2) + '/' + todaysDate.getFullYear();
+  // console.log(stringDate);
   var cursor1 = db.collection('shifts').find({"date":{$gte: stringDate}});
   var cursor2 = db.collection('signup').find();
   //var cursor = db.collection('shifts').find({"date":{$gte: "04/04/2017"}});
@@ -251,7 +251,7 @@ var adminIds = new Array();
 // Connect to MongoLab, when the connection is established then
 // associate the MongoLab database with variable db and start listening
 // to HTML requests.
-MongoClient.connect('mongodb://WFUCG:grow@ds113680.mlab.com:13680/campus_garden',
+MongoClient.connect('mongodb://<dbuser>:<dbpassword>@ds161539.mlab.com:61539/gumbo',
 (err, database) => {
   if (err)
     return console.log(err);
