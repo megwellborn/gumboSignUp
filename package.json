@@ -1,17 +1,15 @@
 {
-  "name": "gumboprep",
+  "name": "cg_proj",
   "version": "1.0.0",
-  "engines":{
-    "node": "6.9.4"
-  }
-}
-
-  "description": "testing",
+  "description": "software engineering course project",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "MW",
+  "engines": {
+   "node": "6.9.4"
+ },
+  "author": "Campus Garden Team",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.1",
